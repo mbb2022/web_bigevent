@@ -36,7 +36,7 @@ function getUserInfo() {
             if(res.status !== 0){
                 return layui.layer.msg(res.message)
             }
-            // 渲染用户头像
+            // 渲染用户头像和姓名
             renderAvatar(res.data)
         },
 
@@ -58,7 +58,8 @@ function getUserInfo() {
 // 渲染用户信息 没有考虑到新用户没有设置头像的问题
 // 传进来的已经是数据
 function renderAvatar(userData){
-    let name = userData.username || userData.nickname
+    // nickname要写在前面 后续更新用户信息的name值是nickname || 存在短路现象
+    let name = userData.nickname || userData.username
     // 渲染欢迎文本
     $('#welcome').html('欢迎&nbsp;&nbsp'+ name)
 

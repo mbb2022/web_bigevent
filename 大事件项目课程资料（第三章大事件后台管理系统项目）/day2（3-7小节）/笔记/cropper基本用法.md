@@ -157,6 +157,8 @@
 
 ## 3. 将裁剪后的图片，输出为 base64 格式的字符串
 
+获取用户裁剪之后的图像
+
 ```js
 var dataURL = $image
       .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
